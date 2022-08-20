@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ -f ./database.db ]; then 
-	sqltie3 database.db "DELETE FROM diary;"
+	sqlite3 database.db "DELETE FROM diary;"
 else
 	sqlite3 database.db "CREATE TABLE food (record INTEGER PRIMARY KEY AUTOINCREMENT, \
 						name text, \
