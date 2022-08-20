@@ -18,6 +18,8 @@ And funny table: **colors** that was created just to color enhance the output.
 
 ### Usage:
 
+Just run `init.sh` script first in order to set up the database
+
 I'm too lazy to create one huge script to implement all interactions with database, so I splitted them into 4 small ones. Use them separately.
 
 ### Presentation:
