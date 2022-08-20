@@ -1,5 +1,5 @@
 #!/bin/sh
-db=(../Discord-Database-Bot/database.db)
+db=(./database.db)
 echo "Enter in the product name: "
 read name
 echo "Enter in kcal per 100g: "

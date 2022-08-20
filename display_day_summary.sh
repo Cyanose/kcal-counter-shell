@@ -1,5 +1,5 @@
 #!/bin/sh
-db=(/home/cyanos/projekty/kcalBot/Discord-Database-Bot/database.db)
+db=(./database.db)
 date=$(date +"%Y-%m-%d")
 
 #declare colors
