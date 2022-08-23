@@ -26,10 +26,13 @@ proteins=$(echo "" | rofi -dmenu -p "ENTER PROTEINS /100g:
 
 sqlite3 $db "insert into food (name, kcal, carbs, proteins, fats) VALUES ('$name', $kcal, $carbs, $proteins, $fats);" 2>/dev/null
 exit_status=`echo $?`
+
 	echo -en '\n'
+
 if [ $exit_status -eq 0 ]; then
 	echo -e "${green} $(echo $name | sed "s/_/ /g") successfully added ${blue}"
 else
 	echo -e "${red} failed to add food${blue}"
 fi
+
 	echo -en '\n'
