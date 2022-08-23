@@ -16,13 +16,9 @@ kcal/100g                    nazwa: " -l 15 | awk '{print $3}' )
 
 serving_name=$(echo "" | rofi -dmenu -p "ENTER SERVING NAME: 
 [for example: 1sztuka]")
-echo $serving_name
 
 serving_size=$(echo "" | rofi -dmenu -p "ENTER SERVING SIZE:
 [for example: 1.6]")
-echo $serving_size
 
 sqlite3 $db "insert into food_servings (reference_record, serving_name, serving_size) values( \
 	(select record from food where name='$food_name'),'$serving_name',$serving_size);"
-
-sqlite3 $db "select * from food_servings;"
