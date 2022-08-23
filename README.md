@@ -20,7 +20,9 @@ And funny table: **colors** that was created just to color enhance the output.
 
 Just run `init.sh` script first in order to set up the database
 
-I'm too lazy to create one huge script to implement all interactions with database, so I splitted them into 4 small ones. Use them separately.
+I'm too lazy to create one huge script to implement all interactions with database, so I splitted them into 5 small ones. Use them separately.
+
+In order to add new product to your database, run `./new_product.sh` and enter values per 100g of product, and then if you want to bind the existing product with the serving run `./bind_product_with_serving.sh`
 
 ### Presentation:
 
