@@ -1,5 +1,5 @@
 #!/bin/sh
-db=(/home/cyanos/projekty/kcalBot/Discord-Database-Bot/database.db)
+db=(./database.db)
 
 #define_colors
 white="\e[1;37m"
@@ -21,4 +21,15 @@ serving_size=$(echo "" | rofi -dmenu -p "ENTER SERVING SIZE:
 [for example: 1.6]")
 
 sqlite3 $db "insert into food_servings (reference_record, serving_name, serving_size) values( \
-	(select record from food where name='$food_name'),'$serving_name',$serving_size);"
+	(select record from food where name='$food_name'),'$serving_name',$serving_size);" 2>/dev/null
+exit_status=`echo $?`
+
+	echo -en '\n'
+
+if [ $exit_status -eq 0 ]; then
+	echo -e "${green} successfully added serving for $(echo $food_name | sed "s/_/ /g")${blue}"
+else
+	echo -e "${red} failed to add serving${blue}"
+fi
+
+	echo -en '\n'
