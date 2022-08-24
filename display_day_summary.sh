@@ -1,5 +1,5 @@
 #!/bin/sh
-db=(./database.db)
+db=(/home/cyanos/projekty/kcalBot/Discord-Database-Bot/database.db)
 date=$(date +"%Y-%m-%d")
 
 #declare colors
@@ -15,11 +15,12 @@ echo -e "${green} Records from $date: ${white} "
 echo -en '\n'
 sqlite3 $db "select printf (' %s %.1f g %s %.1f kcal %s',\
 	(select printf(fmt,name) from colors where color='cyan'),\
-	amount*100,\
+	sum(amount*100),\
 	char(10),\
 	kcal,\
 	char(10))\
-	from diary where day='$date';"
+	from diary where day='$date'\
+	group by name;"
 
 #Display the macronutients intake for this day
 values=($(sqlite3 $db "select printf ('%.2f %.2f %.2f %.2f',
